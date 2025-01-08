@@ -1,0 +1,332 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.meeting-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+// Left Sidebar Styles
+.left-sidebar {
+  width: 72px;
+  background-color: white;
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #e0e0e0;
+
+  .sidebar-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    button {
+      color: #666;
+      &.active {
+        color: #1a73e8;
+      }
+    }
+  }
+}
+
+// Main Content Styles
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.meeting-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e0e0e0;
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .class-tag {
+      background-color: #e8f5e9;
+      color: #2e7d32;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .recording {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: #d32f2f;
+
+      .record-icon {
+        font-size: 12px;
+        height: 12px;
+        width: 12px;
+      }
+    }
+
+    .invite-button {
+      background-color: #1a73e8;
+      color: white;
+    }
+  }
+}
+
+// Video Container Styles
+.video-container {
+  flex: 1;
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  background-color: #f8f9fa;
+  min-height: 0; // Important for flex child
+  position: relative;
+}
+
+.main-video {
+  flex: 1;
+  position: relative;
+  min-height: 0; // Important for flex child
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
+
+.participants-grid {
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .participant-thumbnail {
+    aspect-ratio: 16/9;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .participant-status {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 4px;
+      border-radius: 50%;
+
+      &.muted {
+        background-color: #d32f2f;
+      }
+    }
+  }
+}
+
+#jitsi-meeting {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.muted {
+  background-color: #f44336;
+  color: white;
+}
+
+.control-center button {
+  &.muted {
+    background-color: #f44336;
+    color: white;
+  }
+}
+
+// Meeting Controls Styles
+.meeting-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: white;
+  border-top: 1px solid #e0e0e0;
+
+  .control-left {
+    .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .user-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+      }
+
+      mat-slider {
+        width: 100px;
+      }
+    }
+  }
+
+  .control-center {
+    display: flex;
+    gap: 16px;
+
+    button {
+      background-color: #f1f3f4;
+    }
+  }
+
+  .control-right {
+    button {
+      background-color: #d32f2f;
+      color: white;
+    }
+  }
+}
+
+// Right Sidebar Styles
+.right-sidebar {
+  width: 320px;
+  background-color: white;
+  border-left: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+
+  .sidebar-header {
+    display: flex;
+    border-bottom: 1px solid #e0e0e0;
+
+    .tab-button {
+      flex: 1;
+      padding: 16px;
+      color: #666;
+
+      &.active {
+        color: #1a73e8;
+        border-bottom: 2px solid #1a73e8;
+      }
+    }
+  }
+}
+
+// Poll Section Styles
+.poll-section {
+  padding: 16px;
+  background-color: #f8f9fa;
+  margin: 16px;
+  border-radius: 8px;
+
+  h3 {
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+  }
+
+  .poll-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .poll-option {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      mat-progress-bar {
+        height: 8px;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+// Chat Section Styles
+.chat-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+
+    .message {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+
+      .message-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+      }
+
+      .message-content {
+        .message-sender {
+          font-weight: 500;
+          margin-bottom: 4px;
+        }
+
+        p {
+          margin: 0;
+          background-color: #f1f3f4;
+          padding: 8px 12px;
+          border-radius: 12px;
+        }
+      }
+    }
+  }
+
+  .chat-input {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 16px;
+
+    mat-form-field {
+      flex: 1;
+    }
+  }
+}

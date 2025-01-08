@@ -1,0 +1,10 @@
+<div class="video-container">
+  <video autoplay muted></video>
+  <div class="controls">
+    <button (click)="startRecording()" [disabled]="isRecording">Start Recording</button>
+    <button (click)="stopRecording()" [disabled]="!isRecording">Stop Recording</button>
+  </div>
+</div>
+<script src="https://meet.jit.si/external_api.js"></script>
+
+
